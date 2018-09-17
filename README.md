@@ -5,7 +5,8 @@ Download data from the link  https://hkustconnect-my.sharepoint.com/:u:/g/person
 tar -xzvf lidar_2d.tgz
 rm lidar_2d.tgz
 ```
-    Also, in the src/test_demo.py It has shown the tranformation process. If you are interesting to train your own data. You can get some useful code from it.
+    Also, in the src/test_demo.py .It has shown the tranformation process. 
+    If you are trying to train your own data. You can get some useful code from it.
     I still manage this generation code to release which can be used easily.
 
 ## Train
