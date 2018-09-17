@@ -1,6 +1,6 @@
 ## Training/Validation
 ```
-cd $SQSG_ROOT/data/
+cd data/
 Download data from the link  https://hkustconnect-my.sharepoint.com/:u:/g/personal/ywangeq_connect_ust_hk/EZoRWzAwcc1Ak6n4gnnHuswBnn-EP5rUzXwajzaU_8zHNw?e=UZ26cQ
 tar -xzvf lidar_2d.tgz
 rm lidar_2d.tgz
