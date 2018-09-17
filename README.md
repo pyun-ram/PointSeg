@@ -1,7 +1,12 @@
 ## Training/Validation
-
 ```
-
+cd $SQSG_ROOT/data/
+Download data from the link  https://hkustconnect-my.sharepoint.com/:u:/g/personal/ywangeq_connect_ust_hk/EZoRWzAwcc1Ak6n4gnnHuswBnn-EP5rUzXwajzaU_8zHNw?e=UZ26cQ
+tar -xzvf lidar_2d.tgz
+rm lidar_2d.tgz
+```
+    Also, in the src/test_demo.py It has shown the tranformation process. If you are interesting to train your own data. You can get some useful code from it.
+    I still manage this generation code to release which can be used easily.
 
 ## Train
 
