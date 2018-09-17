@@ -1,0 +1,92 @@
+1.---------------------------------------------------------
+kernal size =3 ,original scale, speed:57 images/s,
+Downsample 16    shape 64x512--64x256--64x128--64x64------64x32------64x64--64x128--64x256--64x512
+original  -- 25000 steps
+eval
+read: 0.017s detect: 0.009s
+  Accuracy:
+    car:
+        Pixel-seg: P: 0.606, R: 0.971, IoU: 0.595
+    pedestrian:
+        Pixel-seg: P: 0.299, R: 0.312, IoU: 0.180
+    cyclist:
+        Pixel-seg: P: 0.308, R: 0.583, IoU: 0.253
+Wait 60s for new checkpoints to be saved ...
+    
+    
+2.---------------------------------------------------------
+ original + downsample 8  
+ kernal size =3 ,  speed:43 images/s, 25000
+    
+in training process    
+ Accuracy:
+    car:
+        Pixel-seg: P:      , R:      , IoU: 0.69
+    pedestrian:
+        Pixel-seg: P:      , R:      , IoU: 0.420
+    cyclist:
+        Pixel-seg: P:      , R:      , IoU: 0.253
+    
+    
+---(2)  same structure with depth decrease   speed 48 images/s 
+     car:
+        Pixel-seg: P: 0.409, R: 0.962, IoU: 0.402
+    pedestrian:
+        Pixel-seg: P: 0.572, R: 0.207, IoU: 0.127
+    cyclist:
+        Pixel-seg: P: 0.252, R: 0.684, IoU: 0.151
+   
+    
+3.--------------------------------------------------------
+original+downsample 8(in fire 11) + downsample 16(in fire12)  speed 44 images/s
+    
+    
+========================================================================================================================
+1-3 
+(1) conclusion， change downsample is not good for detection, because in the add process, it will become the noise
+if all downsample size is 16, the result is also not good.
+(2) because we can not use the pre-trained model parameter, the weight in pedestrain and cyclist are hard to coverage.
+
+
+
+
+
+
+30000 substract
+    car:
+        Pixel-seg: P: 0.566, R: 0.976, IoU: 0.558
+    pedestrian:
+        Pixel-seg: P: 0.277, R: 0.369, IoU: 0.188
+    cyclist:
+        Pixel-seg: P: 0.249, R: 0.684, IoU: 0.224
+Wait 60s for new checkpoints to be saved ...
+
+
+
+
+
+
+
+
+My idea
+
+
+
+             -- 64x512     downsample 16 --64x32 --upsample 16 64x512
+input(64x512)-- 64x256     downsample 8  --64x32 --upsample 8  64x256
+             -- 64x128     downsample 4  --64x32 --upsample 4  64x128
+             
+The structure in downsample6
+
+
+conv1b --      GCN    --    BR           --                                  - sum
+  |        GCN+BR ----------------------------------                   sum      |
+  |        |                                                            |       |
+  |        |                                                            |       |
+  |        |                                      --sum                 |       |
+input - conv1a -Max pooling- fire2                                 decon13 BR con14
+
+
+
+
+
