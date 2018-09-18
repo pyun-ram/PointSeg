@@ -1,3 +1,15 @@
+The implement code of PointSeg,**PointSeg: Real-Time Semantic Segmentation Based on 3D LiDAR Point Cloud**
+if you think this work is useful for your research, pleace cite
+```
+@article{wang2018pointseg,
+  title={PointSeg: Real-Time Semantic Segmentation Based on 3D LiDAR Point Cloud},
+  author={Wang, Yuan and Shi, Tianyue and Yun, Peng and Tai, Lei and Liu, Ming},
+  journal={arXiv preprint arXiv:1807.06288},
+  year={2018}
+}
+```
+
+
 ## Training/Validation
 ```
 cd data/
